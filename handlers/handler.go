@@ -14,6 +14,7 @@ func Handlers() {
 	router := mux.NewRouter()
 
 	router.HandleFunc("/sign-in", middleware.ValidateDB(routers.SignIn)).Methods("POST")
+	router.HandleFunc("/login", middleware.ValidateDB(routers.Login)).Methods("POST")
 
 	PORT := "8080"
 	handler := cors.AllowAll().Handler(router)
